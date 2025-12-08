@@ -1,0 +1,14 @@
+.app {
+  background: $background-color;
+  color: $secondary-color;
+  height: 100vh;
+  font-family: 'Lato';
+
+  @include flex-center;
+
+  .home__button {
+    background: $primary-color;
+    color: yellow;
+    margin-top: 2vh;
+  }
+}
