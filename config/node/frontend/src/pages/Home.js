@@ -16,7 +16,7 @@ function Home(props) {
                 variant='contained'
                 size='large'
                 component={Link}
-                to='services'
+                to='/services'
             >
                 START</Button>
 
