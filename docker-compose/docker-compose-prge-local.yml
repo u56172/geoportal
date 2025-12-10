@@ -1,5 +1,8 @@
-
-
+x-enviroment:
+  #DB
+  - &env-postgres-db POSTGRES_DB=${POSTGRES_DB}
+  - &env-postgres-user POSTGRES_USER=${POSTGRES_DB}
+  - &env-postgres-password POSTGRES_PASSWORD=${POSTGRES_DB}
 services:
   postgis:
     build:
@@ -8,9 +11,9 @@ services:
     image: 'prge_2025_postgis'
     container_name: 'prge_2025_postgis'
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - *env-postgres-user
+      - *env-postgres-password
+      - *env-postgres-db
     ports:
       - 5444:5432
     volumes:
