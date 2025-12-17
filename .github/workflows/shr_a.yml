@@ -20,7 +20,7 @@ jobs:
       - name: Print
         run: echo 'witaj'
 
-      - name: uruchom środowisko docker-compose
+      - name: uruchom-środowisko-docker-compose
         env:
           ENV_NAME: ${{github.ref_name}}
           #DB
