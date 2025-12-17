@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   build-and-push:
-    names: Build & Push
+    name: Build & Push
     runs-on:
       -self-hosted
 
