@@ -13,7 +13,7 @@ permissions:
   packages: write
 
 jobs:
-  build-and-push:
+  build-and-deploy:
     name: Build & Push
     runs-on:
       - self-hosted
@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Print
-        run: echo 'witaj'
+        run: echo 'witam'
 
 
       - name: uruchom srodowisko docker-compose
