@@ -1,6 +1,6 @@
 fastapi
 uvicorn
-sqlalchemy
+SQLAlchemy
 geoalchemy2
 psycopg2-binary
 pandas
