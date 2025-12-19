@@ -41,9 +41,9 @@ services:
     image: 'prge_2025_fastapi'
     container_name: 'prge_2025_fastapi'
     environment:
-      - *env-postgres-db
-      - *env-postgres-user
-      - *env-postgres-password
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     ports:
       - '10000:10000'
 
