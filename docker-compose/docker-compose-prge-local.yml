@@ -12,8 +12,6 @@ services:
     image: 'prge_2025_postgis'
     container_name: 'prge_2025_postgis'
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
       - *env-postgres-db
       - *env-postgres-user
       - *env-postgres-password
@@ -41,9 +39,9 @@ services:
     image: 'prge_2025_fastapi'
     container_name: 'prge_2025_fastapi'
     environment:
-      POSTGRES_DB: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      - *env-postgres-db
+      - *env-postgres-user
+      - *env-postgres-password
     ports:
       - '10000:10000'
 
