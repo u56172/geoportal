@@ -15,9 +15,9 @@ docker-compose -f ./docker-compose/docker-compose-prge-remote.yml --env-file .en
 ```
 ## remote main
 ```shell
-docker-compose -f ./docker-compose/docker-compose-prge-remote.yml --env-file .env.env-qa -p prge-env-qa up --build -d
+docker-compose -f ./docker-compose/docker-compose-prge-remote.yml --env-file .env.main -p prge-env-main up --build -d
 ```
-
+## others
 ``` shell
 docker system prune -a -f 
 ```
