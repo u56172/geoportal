@@ -14,6 +14,26 @@ function Services(props) {
     >
         PRZEJDŹ DO MAPY
             </Button>
+
+            <Button
+        className='home__button'
+        variant='contained'
+        size='large'
+        component={Link}
+        to='/list'
+    >
+        PRZEJDŹ DO LISTY UŻYTKOWNIKÓW
+            </Button>
+
+            <Button
+        className='home__button'
+        variant='contained'
+        size='large'
+        component={Link}
+        to='/newuser'
+    >
+        DODAJ NOWEGO UŻYTKOWNIKA
+            </Button>
         </div>
     );
 }
