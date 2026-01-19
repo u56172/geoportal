@@ -7,24 +7,24 @@ import Typography from '@mui/material/Typography';
 import {red} from '@mui/material/colors';
 
 
-function UserCard({user}) {
-    console.log('czym jest user: ', user)
+function FacilityCard({facility}) {
+    console.log('czym jest facility: ', facility)
     return (
         <div>
             <Card sx={{maxWidth: 345}}>
                 <CardHeader
                     avatar={
                         <Avatar sx={{bgcolor: red[500]}} aria-label="recipe">
-                            {user.name[0]}
+                            {facility.name[0]}
                         </Avatar>
                     }
-                    title={user.name}
-                    subheader={user.location}
+                    title={facility.name}
+                    subheader={facility.city}
                 />
 
                 <CardContent>
                     <Typography variant="body2" sx={{color: 'text.secondary'}}>
-                        Twój znajomy {user.name} opublikował {user.id} postów.
+                        Obiekt {facility.name} znajduje się w miejscowości {facility.city}.
                     </Typography>
                 </CardContent>
 
@@ -34,4 +34,4 @@ function UserCard({user}) {
     );
 }
 
-export default UserCard;
+export default FacilityCard;

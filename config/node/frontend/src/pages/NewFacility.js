@@ -1,24 +1,24 @@
 import React, {useState} from 'react';
 import {Container, Box, TextField, Button, Paper} from "@mui/material";
 
-function NewUser(props) {
-    const [userName, setUserName] = useState("")
-    const [userLocation, setUserLocation] = useState("")
-    const [userPosts, setUserPosts] = useState(0)
+function NewFacility(props) {
+    const [facilityName, setFacilityName] = useState("")
+    const [facilityCity, setFacilityCity] = useState("")
+    const [facilityUrl, setFacilityUrl] = useState("")
 
     const handleSubmit = async (e) => {
-        console.log(userName, userLocation, userPosts)
+        console.log(facilityName, facilityCity, facilityUrl)
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:10000/app/insert_user', {
+            const response = await fetch('http://localhost:10000/app/insert_facility', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    name: userName,
-                    location: userLocation,
-                    posts: userPosts
+                    name: facilityName,
+                    location: facilityCity,
+                    posts: facilityUrl
                 })
             })
             console.log(response)
@@ -38,23 +38,23 @@ function NewUser(props) {
                     >
                         <TextField sx={{m: 1}}
                                    fullWidth
-                                   label="imię"
-                                   value={userName}
-                                   onChange={(e) => setUserName(e.target.value)}
+                                   label="nazwa"
+                                   value={facilityName}
+                                   onChange={(e) => setFacilityName(e.target.value)}
                         ></TextField>
                         <TextField sx={{m: 1}}
                                    fullWidth
-                                   label="location"
-                                   value={userLocation}
-                                   onChange={(e) => setUserLocation(e.target.value)}
+                                   label="city"
+                                   value={facilityCity}
+                                   onChange={(e) => setFacilityCity(e.target.value)}
                         ></TextField>
                         <TextField sx={{m: 1}}
                                    fullWidth
-                                   label="posts"
-                                   value={userPosts}
-                                   onChange={(e) => setUserPosts(e.target.value)}
+                                   label="img_url"
+                                   value={facilityUrl}
+                                   onChange={(e) => setFacilityUrl(e.target.value)}
                         ></TextField>
-                        <Button type="submit" variant='contained'>Dodaj użytkownika</Button>
+                        <Button type="submit" variant='contained'>Dodaj obiekt</Button>
 
 
                     </Box>
@@ -66,4 +66,4 @@ function NewUser(props) {
     );
 }
 
-export default NewUser;
+export default NewFacility;

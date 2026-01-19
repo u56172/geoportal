@@ -1,3 +1,271 @@
-@import 'variables.scss';
-@import 'mixins.scss';
-@import '_main.scss';
+@import './variables';
+@import './mixins';
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden; //nie można scrollować w prawo
+}
+
+body {
+  margin: 0;
+  font-family: $font-main;
+  background: $white;
+  color: $text-dark;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+/* HOME */
+.home {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.home__top {
+  height: 65vh;
+  background: $white;
+  position: relative;
+}
+
+.home__nav {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  right: 22px;
+  @include flex-between;
+  z-index: 2;
+}
+
+.home__navLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.home__logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #0B61C3;
+  box-shadow: $shadow;
+  @include flex-center;
+}
+
+.home__navGroup {
+  height: 44px;
+  background: $nav-bg;
+  border-radius: 8px;
+  box-shadow: $shadow;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  gap: 12px;
+}
+
+.home__navItem {
+  height: 34px;
+  padding: 0 18px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: $text-dark;
+}
+
+.home__navRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* MUI Buttons – nadpisanie wyglądu */
+.home__login.MuiButton-root {
+  height: 44px;
+  padding: 0 28px;
+  border-radius: 8px;
+  text-transform: none;
+  font-weight: 700;
+  box-shadow: $shadow;
+  background: $primary-color;
+}
+
+.home__getStarted.MuiButton-root {
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 8px;
+  text-transform: none;
+  font-weight: 700;
+  box-shadow: $shadow;
+  background: $nav-bg;
+  color: $text-dark;
+}
+
+.home__hero {
+  height: 100%;
+  @include flex-center;
+}
+
+.home__title {
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  line-height: 0.95;
+  font-size: clamp(64px, 10vw, 140px);
+  display: flex;
+  align-items: baseline;
+}
+
+.home__titleStrong {
+  color: $black;
+}
+
+.home__titleSoft {
+  color: $text-soft;
+}
+
+.home__dot {
+  color: $text-soft;
+  letter-spacing: 0;
+  margin-left: 4px;
+}
+
+/* BOTTOM */
+.home__bottom {
+  height: 35vh;
+  background: $primary-color;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 28px 28px 22px 28px;
+}
+
+.home__tagline {
+  margin: 0;
+  max-width: 320px;
+  font-size: 18px;
+  line-height: 1.25;
+  color: $text-dark;
+  white-space: pre-line;
+}
+
+.home__mapWrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: min(420px, 45vw);
+  height: 100%;
+}
+
+.home__polandSvg {
+  width: 100%;
+  height: auto;
+  max-height: 85%;
+}
+
+.mapComponent {
+  height: 100vh;
+  width: 100vw;
+}
+
+.about{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: $primary-color;
+  justify-content: center;
+  align-items: center;
+}
+.about__tittle{
+  margin: 0;
+  max-width: 320px;
+  font-size: 18px;
+  line-height: 1.25;
+  color: $text-dark;
+  white-space: pre-line;
+}
+
+.back__home__button{
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 8px;
+  text-transform: none;
+  font-weight: 700;
+  box-shadow: $shadow;
+  background: $nav-bg;
+  color: $text-dark;
+}
+
+.services{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: $primary-color;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.services__grid {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+.services__button{
+  width: 300px;
+}
+
+.services__card{
+  width: 260px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.services__title {
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  line-height: 0.95;
+  font-size: clamp(64px, 10vw, 140px);
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  color: $text-dark;
+}
+
+
+.listofitems{
+  background: $primary-color;
+}
+.listofitems_title{
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  line-height: 0.95;
+  font-size: clamp(64px, 10vw, 140px);
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  color: $text-dark;
+
+}
+.mt-8{
+  background: $primary-color;
+}

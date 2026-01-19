@@ -1,39 +1,58 @@
 import React from 'react';
-import {Button} from "@mui/material";
-import {Link} from "react-router-dom";
+import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
+import skaterImg from '../static/skater.jpg';
+import glassImg from '../static/glass.jpg';
+import addImg from '../static/add.jpg';
 
-function Services(props) {
-    return ( <div>
-        <div>SERVICES</div>
-        <Button
-        className='home__button'
-        variant='contained'
-        size='large'
-        component={Link}
-        to='/map'
-    >
-        PRZEJDŹ DO MAPY
-            </Button>
+function Services() {
+    return (
+        <div className="services">
 
-            <Button
-        className='home__button'
-        variant='contained'
-        size='large'
-        component={Link}
-        to='/list'
-    >
-        PRZEJDŹ DO LISTY UŻYTKOWNIKÓW
-            </Button>
+            <div className="services__title">Services</div>
 
-            <Button
-        className='home__button'
-        variant='contained'
-        size='large'
-        component={Link}
-        to='/newuser'
-    >
-        DODAJ NOWEGO UŻYTKOWNIKA
-            </Button>
+            <div className="services__grid">
+
+                <div className="services__card">
+                    <img src={skaterImg}/>
+                    <Button
+                        className='services__button'
+                        variant='contained'
+                        size='large'
+                        component={Link}
+                        to='/list'
+                    >
+                        LIST OF FACILITIES
+                    </Button>
+                </div>
+
+                <div className="services__card">
+                    <img src={glassImg}/>
+                    <Button
+                        className='services__button'
+                        variant='contained'
+                        size='large'
+                        component={Link}
+                        to='/map'
+                    >
+                        MAP
+                    </Button>
+                </div>
+
+                <div className="services__card">
+                    <img src={addImg}/>
+                    <Button
+                        className='services__button'
+                        variant='contained'
+                        size='large'
+                        component={Link}
+                        to='/newfacility'
+                    >
+                        ADD A NEW FACILITY
+                    </Button>
+                </div>
+
+            </div>
         </div>
     );
 }
