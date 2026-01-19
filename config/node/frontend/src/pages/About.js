@@ -7,11 +7,6 @@ function About(props) {
     return (
         <div className='about'>
             <div className='about__top'>
-                <div className='home__logo'>
-                  <Link to="/" className="home__logoLink">
-                    <img src={logo} />
-                  </Link>
-                </div>
                 <h1 className='about__tittle'>GEOPORTAL</h1>
 
                 <Typography className='about__subtitle'>

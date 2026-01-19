@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from sqlalchemy import create_engine, text
 from app.settings import db_name, db_user, db_password
 
-router_get_users = APIRouter()
+router_get_facilities = APIRouter()
 
 
 def connect_to_db(db_name: str, db_user: str, db_password: str):
@@ -10,20 +10,20 @@ def connect_to_db(db_name: str, db_user: str, db_password: str):
         f"postgresql://{db_user}:{db_password}@postgis:5432/{db_name}"
     )
 
-@router_get_users.get("/get_users")
-async def get_users():
+
+@router_get_facilities.get("/get_facilities")
+async def get_facilities():
     try:
         db_connection = connect_to_db(db_name=db_name, db_user=db_user, db_password=db_password)
 
-        sql_query = text("""
-                    SELECT * FROM users;
-                    """)
+        sql_query = text("""select * from facilities""")
+
         with db_connection.connect() as conn:
             result = conn.execute(sql_query)
-            users = [dict(row._mapping) for row in result]
+            facilities = [dict(row._mapping) for row in result]
 
-        return {"status": "success", "data": users}
+        return {"status": "success", "data": facilities}
 
     except Exception as e:
-        print(f'błąd podczas get_users')
-        return {"error": str(e)}
+        print(f' bląd podczas get_facilities')
+        return {"status": 'error'}

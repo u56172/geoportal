@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
 import {Container, Box, TextField, Button, Paper} from "@mui/material";
+import {Link} from "react-router-dom";
+import logo2 from "../static/logo2.png";
+import guy from "../static/guy.png";
 
 function NewFacility(props) {
     const [facilityName, setFacilityName] = useState("")
@@ -30,38 +33,54 @@ function NewFacility(props) {
 
 
     return (
-        <div>
-            <Container>
-                <Paper elevation={3} sx={{p: 4}}>
-                    <Box component="form"
-                         onSubmit={handleSubmit}
-                    >
-                        <TextField sx={{m: 1}}
-                                   fullWidth
-                                   label="nazwa"
-                                   value={facilityName}
-                                   onChange={(e) => setFacilityName(e.target.value)}
-                        ></TextField>
-                        <TextField sx={{m: 1}}
-                                   fullWidth
-                                   label="city"
-                                   value={facilityCity}
-                                   onChange={(e) => setFacilityCity(e.target.value)}
-                        ></TextField>
-                        <TextField sx={{m: 1}}
-                                   fullWidth
-                                   label="img_url"
-                                   value={facilityUrl}
-                                   onChange={(e) => setFacilityUrl(e.target.value)}
-                        ></TextField>
-                        <Button type="submit" variant='contained'>Dodaj obiekt</Button>
+        <div className='newfacility'>
+            <div className="newfacility__top">
+                <div className='home__logo'>
+                    <Link to="/" className="home__logoLink">
+                      <img src={logo2} />
+                    </Link>
+                </div>
+                <div className="newfacility__title">NEW FACILITY.</div>
+                <div className="newfacility__forms">
+                    <Container>
+                        <Paper elevation={3} sx={{p: 4}}>
+                            <Box component="form"
+                                 onSubmit={handleSubmit}
+                            >
+                                <TextField sx={{m: 1}}
+                                           fullWidth
+                                           label="nazwa"
+                                           value={facilityName}
+                                           onChange={(e) => setFacilityName(e.target.value)}
+                                ></TextField>
+                                <TextField sx={{m: 1}}
+                                           fullWidth
+                                           label="city"
+                                           value={facilityCity}
+                                           onChange={(e) => setFacilityCity(e.target.value)}
+                                ></TextField>
+                                <TextField sx={{m: 1}}
+                                           fullWidth
+                                           label="img_url"
+                                           value={facilityUrl}
+                                           onChange={(e) => setFacilityUrl(e.target.value)}
+                                ></TextField>
+                                <div className='newfacility__buttons'>
+                                <Button type="submit" variant='contained'>Dodaj obiekt</Button>
+                                <Button size="small" color="primary" component={Link} to="/list">Przejdź do obiektów</Button>
+                                </div>
 
+                            </Box>
+                        </Paper>
+                    </Container>
+                </div>
+            </div>
 
-                    </Box>
-                </Paper>
-            </Container>
-
-
+            <div className="newfacility__bottom">
+                <div className='newfacility__boy'>
+                    <img src={guy} />
+                </div>
+            </div>
         </div>
     );
 }

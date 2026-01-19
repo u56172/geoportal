@@ -80,7 +80,7 @@ a {
 }
 
 .home__logoLink img {
-  height: 26px;
+  height: 70px;
   display: block;
 }
 
@@ -229,22 +229,63 @@ a {
 }
 
 /*SERVICES*/
+.services {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
 
+.services__top {
+  height: 75vh;
+  background: $white;
+  position: relative;
+}
 
+.services__cards {
+  position: absolute;
+  top: 270px;
+  left: 35px;
+  right: 35px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  z-index: 2;
+}
 
+.services__card__skater{
+  border: 2px solid $black;
+}
+.services__card__glass{
+  border: 2px solid $black;
+}
+.services__card__add{
+  border: 2px solid $black;
+}
 
-
-
-
-
-
-
-
+.services__bottom {
+  height: 25vh;
+  background: $primary-color;
+}
+.services__title{
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  line-height: 0.95;
+  font-size: clamp(64px, 10vw, 140px);
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  color: $text-dark;
+}
 
 /*LISTOFITEMS*/
 
 .listofitems{
   background: $primary-color;
+}
+.listofitems__header{
+  padding: 22px;
 }
 .listofitems_title{
   margin: 0;
@@ -256,8 +297,66 @@ a {
   align-items: baseline;
   justify-content: center;
   color: $text-dark;
-
 }
+
 .mt-8{
   background: $primary-color;
+}
+
+/*New Facility*/
+
+
+.newfacility {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.newfacility__top {
+  height: 75vh;
+  background: $white;
+  position: relative;
+}
+
+.newfacility__bottom {
+  height: 25vh;
+  background: $primary-color;
+}
+.newfacility__title{
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  line-height: 0.95;
+  font-size: clamp(64px, 10vw, 140px);
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  color: $text-dark;
+}
+
+.newfacility__forms{
+  position: absolute;
+  top: 270px;
+  left: 35px;
+  right: 35px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  z-index: 2;
+}
+.newfacility__buttons{
+  display: flex;
+  gap: 16px;
+}
+.newfacility__boy {
+  position: absolute;
+  right: 28px;
+  bottom: 22px;
+}
+.newfacility__boy img {
+  width: 320px;
+  max-width: 40vw;
+  height: auto;
+  display: block;
 }

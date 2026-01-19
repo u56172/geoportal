@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Carousel } from "../components/Carousel";
 import {Button} from "@mui/material";
 import {Link} from "react-router-dom";
-import logo from "../static/logo.png";
+import logo2 from "../static/logo2.png";
 
 const API = "http://localhost:10000";
 
@@ -37,12 +37,14 @@ function ListOfItems() {
 
   return (
     <div className ='listofitems'>
-        <div className='home__logo'>
-          <Link to="/" className="home__logoLink">
-            <img src={logo} />
-          </Link>
+        <div className="listofitems__header">
+          <div className='home__logo'>
+            <Link to="/" className="home__logoLink">
+              <img src={logo2} />
+            </Link>
+          </div>
         </div>
-      <div className="listofitems_title">Facilities</div>
+      <div className="listofitems_title">LIST OF SERVICES.</div>
       <div className="mt-8">
         <Carousel slides={slides} />
       </div>
