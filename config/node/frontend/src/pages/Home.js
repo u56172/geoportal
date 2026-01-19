@@ -1,18 +1,18 @@
 import React from 'react';
 import { Button } from "@mui/material";
 import { Link } from 'react-router-dom';
-
+import logo from '../static/logo.png';
+import poland from '../static/poland.png';
 function Home() {
   return (
     <div className='home'>
       <div className='home__top'>
         <header className='home__nav'>
           <div className='home__navLeft'>
-            <div className='home__logo' aria-label="Logo">
-              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="13" cy="13" r="10" stroke="white" strokeWidth="2"/>
-                <path d="M13 5V13L18 16" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+            <div className='home__logo'>
+              <Link to="/" className="home__logoLink">
+                <img src={logo} />
+              </Link>
             </div>
 
             <nav className='home__navGroup'>
@@ -48,32 +48,8 @@ function Home() {
           Thematic geoportal of{'\n'}
           recreational facilities...
         </p>
-
-        <div className='home__mapWrap'>
-          {/* Placeholder SVG – podmień na eksport SVG z Figmy, jeśli chcesz identyczne granice */}
-          <svg className='home__polandSvg' viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M150 50
-                 C210 10, 300 20, 360 70
-                 C410 110, 450 140, 440 200
-                 C430 260, 370 310, 300 320
-                 C240 330, 180 320, 140 280
-                 C110 250, 80 200, 95 150
-                 C110 95, 120 70, 150 50 Z"
-              fill="#FFFFFF"
-              stroke="#4E67D8"
-              strokeWidth="4"
-              strokeLinejoin="round"
-            />
-
-            <path d="M170 85 L210 140 L185 210 L230 270" stroke="#4E67D8" strokeWidth="3" fill="none" opacity="0.9"/>
-            <path d="M230 80 L265 140 L250 220 L290 295" stroke="#4E67D8" strokeWidth="3" fill="none" opacity="0.9"/>
-            <path d="M300 85 L320 145 L310 235 L350 285" stroke="#4E67D8" strokeWidth="3" fill="none" opacity="0.9"/>
-            <path d="M360 110 L365 165 L350 230 L390 250" stroke="#4E67D8" strokeWidth="3" fill="none" opacity="0.9"/>
-
-            <path d="M150 160 L440 160" stroke="#4E67D8" strokeWidth="3" opacity="0.8"/>
-            <path d="M135 220 L420 220" stroke="#4E67D8" strokeWidth="3" opacity="0.8"/>
-          </svg>
+        <div className='home__poland'>
+          <img src={poland} />
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Carousel } from "../components/Carousel";
 import {Button} from "@mui/material";
 import {Link} from "react-router-dom";
+import logo from "../static/logo.png";
 
 const API = "http://localhost:10000";
 
@@ -36,13 +37,11 @@ function ListOfItems() {
 
   return (
     <div className ='listofitems'>
-        <Button
-          className='back__home__button'
-          variant='contained'
-          size='large'
-          component={Link}
-          to='/'>
-        BACK</Button>
+        <div className='home__logo'>
+          <Link to="/" className="home__logoLink">
+            <img src={logo} />
+          </Link>
+        </div>
       <div className="listofitems_title">Facilities</div>
       <div className="mt-8">
         <Carousel slides={slides} />
