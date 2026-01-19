@@ -1,7 +1,6 @@
 {
   "name": "frontend",
-  "homepage": ".",
-// "homepage": "https://u56172.github.io/prge_mateuszw",
+  "homepage": "https://u56172.github.io/prge_mateuszw",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
