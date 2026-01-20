@@ -45,7 +45,7 @@ function MapComponent(props) {
     }, []);
 
     return (
-        <div className="mapComponent" ref={mapRef} style={{ width: "100%", height: "100vh" }}></div>
+        <div className="mapComponent" ref={mapRef} style={{ width: "100%", height: "90vh" }}></div>
     );
 }
 
