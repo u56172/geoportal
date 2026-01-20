@@ -25,13 +25,13 @@ function MapComponent(props) {
                 }),
                 new TileLayer({
                     source: new TileWMS({
-                        url: "http://localhost:9000/geoserver/ne/wms?",
+                        url: "http://localhost:9000/geoserver/wms?",
                         params: {
-                            LAYERS: "ne:countries",
+                            LAYERS: "land_cover",
                             TILED: true,
                         },
                         serverType: "geoserver",
-                        transition: 60,
+                        transition: 0,
                     }),
                 }),
             ],
