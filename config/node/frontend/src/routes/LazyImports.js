@@ -7,3 +7,5 @@ export const ListOfItems = lazy(() => import('../pages/ListOfItems'));
 export const NewFacility = lazy(() => import('../pages/NewFacility'));
 export const Map = lazy(() => import('../pages/Map'));
 export const Services = lazy(() => import('../pages/Services'));
+export const Help = lazy(() => import('../pages/Help'));
+export const Events = lazy(() => import('../pages/Events'));

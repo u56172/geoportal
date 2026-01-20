@@ -2,15 +2,18 @@ import React from 'react';
 import {Typography} from "@mui/material";
 import {Button} from "@mui/material";
 import {Link} from 'react-router-dom';
-import logo from '../static/logo.png';
+import about from "../static/about.png";
 function About(props) {
     return (
         <div className='about'>
             <div className='about__top'>
-                <h1 className='about__tittle'>GEOPORTAL</h1>
+                <h1 className='about__tittle'>GEOPORTAL.</h1>
 
                 <Typography className='about__subtitle'>
-                  Thematic geoportal for facilities etc.
+                  This website was created to hold info about amazing facilities in one place!
+                    <br/>
+                    <br/>
+                    Author: Mateusz Woźniak
                 </Typography>
               </div>
 
@@ -24,6 +27,9 @@ function About(props) {
         >
           BACK
         </Button>
+          <div className='about__lightbulb'>
+              <img src={about} />
+          </div>
       </div>
     </div>
 

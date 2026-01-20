@@ -31,17 +31,18 @@ async def insert_facility(facility: FacilityData):
         }
 
         sql_query = text("""
-            insert into facilities (name, city, img_url)
-            values (:name, :city, :img_url);
-        """)
+                         INSERT INTO facilities (name, city, img_url)
+                         VALUES (:name, :city, :img_url);
+                         """)
 
         with db_connection.connect() as conn:
             result = conn.execute(sql_query, params)
             conn.commit()
-            print(result)
+
+        return {"status": "success", "message": "Facility added successfully."}
 
     except Exception as e:
-        print(e)
-        raise e
+        print(f"Error inserting facility: {e}")
+        return {"status": "error", "message": str(e)}
 
     return {"status": 1}

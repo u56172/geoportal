@@ -20,17 +20,24 @@ function NewFacility(props) {
                 },
                 body: JSON.stringify({
                     name: facilityName,
-                    location: facilityCity,
-                    posts: facilityUrl
+                    city: facilityCity,
+                    img_url: facilityUrl
                 })
-            })
-            console.log(response)
+            });
+            const data = await response.json();
+            console.log(data);
+
+            if (response.ok) {
+                setFacilityName("");
+                setFacilityCity("");
+                setFacilityUrl("");
+            } else {
+                console.log("Błąd przy dodawaniu obiektu:", data);
+            }
         } catch (e) {
-            console.log(e)
+            console.log(e);
         }
-
     }
-
 
     return (
         <div className='newfacility'>

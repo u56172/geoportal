@@ -218,6 +218,18 @@ a {
   justify-content: center;
 }
 
+.about__lightbulb {
+  position: absolute;
+  right: 28px;
+  bottom: 22px;
+}
+
+.about__lightbulb img {
+  width: 320px;
+  max-width: 40vw;
+  height: auto;
+  display: block;
+}
 .back__home__button {
   height: 44px;
   padding: 0 18px;
@@ -360,3 +372,142 @@ a {
   height: auto;
   display: block;
 }
+
+
+/*HELP*/
+.help {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.help__tittle {
+  margin: 0;
+  font-size: clamp(48px, 8vw, 100px);
+  font-weight: 900;
+  text-align: center;
+}
+
+.help__subtitle {
+  font-size: 20px;
+  color: #333;
+  margin: 10px 0;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.help__top {
+  height: 65vh;
+  background: $white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.help__bottom {
+  height: 35vh;
+  background: $primary-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+/*EVENTS*/
+.events {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.events__tittle {
+  margin: 0;
+  font-size: clamp(48px, 8vw, 100px);
+  font-weight: 900;
+}
+
+.events__subtitle {
+  font-size: 18px;
+  color: $text-dark;
+}
+
+.events__top {
+  height: 65vh;
+  background: $white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+
+/*EVENTS*/
+
+.events {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.events__top {
+  height: 70vh;
+  background: $white;
+  position: relative;
+}
+.events__title{
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  line-height: 0.95;
+  font-size: clamp(64px, 10vw, 140px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-dark;
+
+}.events__cards {
+  position: absolute;
+  top: 270px;
+  left: 35px;
+  right: 35px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  z-index: 2;
+}
+
+.events__card__one {
+  border: 2px solid $black;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.events__card__two {
+  border: 2px solid $black;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.events__card__three {
+  border: 2px solid $black;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.events__hero {
+  height: 100%;
+  @include flex-center;
+}
+.events__bottom {
+  height: 35vh;
+  background: $primary-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

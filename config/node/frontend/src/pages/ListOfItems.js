@@ -44,7 +44,7 @@ function ListOfItems() {
             </Link>
           </div>
         </div>
-      <div className="listofitems_title">LIST OF SERVICES.</div>
+      <div className="listofitems_title">LIST OF FACILITIES.</div>
       <div className="mt-8">
         <Carousel slides={slides} />
       </div>
