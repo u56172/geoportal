@@ -48,4 +48,9 @@ jobs:
           if [ "${{github.ref_name}}" == "main" ]; then
             ENV_FILE=".env.main"
           fi
-          docker-compose -f ./docker-compose/docker-compose-prge-remote.yml --env-file ${ENV_FILE} -p prge-${{github.ref_name}} up --build -d
+          
+          if [ "${{github.ref_name}}" == "env-qa" ] || [ "${{github.ref_name}}" == "main" ]; then
+            docker-compose -f ./docker-compose/docker-compose-prge-remote.yml --env-file ${ENV_FILE} -p prge-${{github.ref_name}} up --build -d nginx
+          else
+            docker-compose -f ./docker-compose/docker-compose-prge-remote.yml --env-file ${ENV_FILE} -p prge-${{github.ref_name}} up --build -d
+          fi
