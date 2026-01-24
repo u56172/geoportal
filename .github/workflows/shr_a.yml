@@ -1,0 +1,36 @@
+name: build and push and deploy
+
+on:
+  push:
+    branches:
+      - env-test
+      - env-qa
+      - main
+
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build-and-deploy:
+    name: Build & Push
+    runs-on:
+      - self-hosted
+    environment: ${{github.ref_name}}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Print
+        run: echo 'witam'
+
+
+      - name: uruchom srodowisko docker-compose
+        run: |
+          ENV_FILE=".env.${{github.ref_name}}"
+          if [ "${{github.ref_name}}" == "main" ]; then
+            ENV_FILE=".env.main"
+          fi
+          source ${ENV_FILE}
+          docker-compose -f ./docker-compose/docker-compose-prge-remote.yml --env-file ${ENV_FILE} -p prge-${ENV_NAME} up --build -d
