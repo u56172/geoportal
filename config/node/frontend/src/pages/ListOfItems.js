@@ -3,20 +3,18 @@ import { Carousel } from "../components/Carousel";
 import { Link } from "react-router-dom";
 import logo2 from "../static/logo2.png";
 
-const API = "http://localhost:10000";
-
 function toImageSrc(imgUrl) {
   if (!imgUrl) return "";
   if (imgUrl.startsWith("http")) return imgUrl;
-  if (imgUrl.startsWith("/static/")) return `${API}${imgUrl}`;
-  return `${API}/static/${imgUrl}`;
+  if (imgUrl.startsWith("/static/")) return `/app${imgUrl}`;
+  return `/app/static/${imgUrl}`;
 }
 
 function ListOfItems() {
   const [facilities, setFacilities] = useState([]);
 
   useEffect(() => {
-    fetch(`${API}/app/get_facilities`)
+    fetch('/app/get_facilities')
       .then((res) => res.json())
       .then((res) => {
         setFacilities(res.data ?? []);

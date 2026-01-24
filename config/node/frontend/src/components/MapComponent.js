@@ -17,7 +17,7 @@ function MapComponent(props) {
 
         const facilitiesWMS = new TileLayer({
             source: new TileWMS({
-                url: 'http://localhost:9000/geoserver/prge/wms',
+                url: '/geoserver/prge/wms',
                 params: {
                     'LAYERS': 'prge:facilities',
                     'TILED': true,

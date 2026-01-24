@@ -3,8 +3,6 @@ import { Container, Box, TextField, Button, Paper } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import logo2 from "../static/logo2.png";
 
-const API = "http://localhost:10000";
-
 function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -16,7 +14,7 @@ function Login() {
         setError("");
         
         try {
-            const response = await fetch(`${API}/app/login`, {
+            const response = await fetch('/app/login', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({ username, password })

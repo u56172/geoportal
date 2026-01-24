@@ -14,7 +14,7 @@ function NewFacility() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:10000/app/insert_facility', {
+            const response = await fetch('/app/insert_facility', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
