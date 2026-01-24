@@ -25,6 +25,22 @@ jobs:
       - name: Print
         run: echo 'witam'
 
+      - name: Create .env file
+        run: |
+          ENV_FILE=".env.${{github.ref_name}}"
+          if [ "${{github.ref_name}}" == "main" ]; then
+            ENV_FILE=".env.main"
+          fi
+          cat > ${ENV_FILE} << EOF
+          ENV_NAME=${{github.ref_name}}
+          POSTGRES_DB=${{secrets.POSTGRES_DB}}
+          POSTGRES_USER=${{secrets.POSTGRES_USER}}
+          POSTGRES_PASSWORD=${{secrets.POSTGRES_PASSWORD}}
+          POSTGRES_PORT=${{secrets.POSTGRES_PORT}}
+          GEOSERVER_PORT=${{secrets.GEOSERVER_PORT}}
+          FASTAPI_PORT=${{secrets.FASTAPI_PORT}}
+          NGINX_PORT=${{secrets.NGINX_PORT}}
+          EOF
 
       - name: uruchom srodowisko docker-compose
         run: |
@@ -32,5 +48,4 @@ jobs:
           if [ "${{github.ref_name}}" == "main" ]; then
             ENV_FILE=".env.main"
           fi
-          source ${ENV_FILE}
-          docker-compose -f ./docker-compose/docker-compose-prge-remote.yml --env-file ${ENV_FILE} -p prge-${ENV_NAME} up --build -d
+          docker-compose -f ./docker-compose/docker-compose-prge-remote.yml --env-file ${ENV_FILE} -p prge-${{github.ref_name}} up --build -d
