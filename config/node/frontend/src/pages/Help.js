@@ -3,11 +3,11 @@ import {Button, Typography} from "@mui/material";
 import {Link} from "react-router-dom";
 import help from "../static/help.png";
 
-function Help(props) {
+function Help() {
     return (
           <div className='help'>
             <div className='help__top'>
-                <h1 className='help__tittle'>HELP</h1>
+                <h1 className='help__title'>HELP</h1>
 
                 <Typography className='help__subtitle'>
                     1. Jak dodać nowy obiekt?

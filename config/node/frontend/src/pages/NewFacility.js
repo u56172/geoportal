@@ -4,35 +4,34 @@ import {Link} from "react-router-dom";
 import logo2 from "../static/logo2.png";
 import guy from "../static/guy.png";
 
-function NewFacility(props) {
+function NewFacility() {
     const [facilityName, setFacilityName] = useState("")
+    const [facilityStreet, setFacilityStreet] = useState("")
+    const [facilityNumber, setFacilityNumber] = useState("")
     const [facilityCity, setFacilityCity] = useState("")
     const [facilityUrl, setFacilityUrl] = useState("")
 
     const handleSubmit = async (e) => {
-        console.log(facilityName, facilityCity, facilityUrl)
         e.preventDefault();
         try {
             const response = await fetch('http://localhost:10000/app/insert_facility', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
                     name: facilityName,
+                    street: facilityStreet,
+                    number: facilityNumber,
                     city: facilityCity,
                     img_url: facilityUrl
                 })
             });
-            const data = await response.json();
-            console.log(data);
-
+            
             if (response.ok) {
                 setFacilityName("");
+                setFacilityStreet("");
+                setFacilityNumber("");
                 setFacilityCity("");
                 setFacilityUrl("");
-            } else {
-                console.log("Błąd przy dodawaniu obiektu:", data);
             }
         } catch (e) {
             console.log(e);
@@ -56,9 +55,21 @@ function NewFacility(props) {
                             >
                                 <TextField sx={{m: 1}}
                                            fullWidth
-                                           label="nazwa"
+                                           label="name"
                                            value={facilityName}
                                            onChange={(e) => setFacilityName(e.target.value)}
+                                ></TextField>
+                                <TextField sx={{m: 1}}
+                                           fullWidth
+                                           label="street"
+                                           value={facilityStreet}
+                                           onChange={(e) => setFacilityStreet(e.target.value)}
+                                ></TextField>
+                                <TextField sx={{m: 1}}
+                                           fullWidth
+                                           label="number"
+                                           value={facilityNumber}
+                                           onChange={(e) => setFacilityNumber(e.target.value)}
                                 ></TextField>
                                 <TextField sx={{m: 1}}
                                            fullWidth
@@ -73,8 +84,8 @@ function NewFacility(props) {
                                            onChange={(e) => setFacilityUrl(e.target.value)}
                                 ></TextField>
                                 <div className='newfacility__buttons'>
-                                <Button type="submit" variant='contained'>Dodaj obiekt</Button>
-                                <Button size="small" color="primary" component={Link} to="/list">Przejdź do obiektów</Button>
+                                <Button type="submit" variant='contained'>Add an object</Button>
+                                <Button size="small" color="primary" component={Link} to="/list">See all objects</Button>
                                 </div>
 
                             </Box>

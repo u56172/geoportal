@@ -1,9 +1,26 @@
 import React from 'react';
 import { Button } from "@mui/material";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../static/logo.png';
 import poland from '../static/poland.png';
+
 function Home() {
+  const navigate = useNavigate();
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+  const handleGetStarted = (e) => {
+    if (!isLoggedIn) {
+      e.preventDefault();
+      navigate("/login");
+    }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    navigate("/");
+    window.location.reload();
+  };
+
   return (
     <div className='home'>
       <div className='home__top'>
@@ -24,11 +41,24 @@ function Home() {
           </div>
 
           <div className='home__navRight'>
-            <Button className='home__login' variant='contained' component={Link} to='/login'>
-              Login
-            </Button>
+            {isLoggedIn ? (
+              <Button className='home__login' variant='contained' onClick={handleLogout}>
+                Logout
+              </Button>
+            ) : (
+              <Button className='home__login' variant='contained' component={Link} to='/login'>
+                Login
+              </Button>
+            )}
 
-            <Button className='home__getStarted' variant='contained' component={Link} to='/services'>
+            <Button 
+              className='home__getStarted' 
+              variant='contained' 
+              component={Link} 
+              to={isLoggedIn ? '/services' : '/login'}
+              onClick={handleGetStarted}
+              disabled={!isLoggedIn}
+            >
               Get Started →
             </Button>
           </div>

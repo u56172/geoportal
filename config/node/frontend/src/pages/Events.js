@@ -12,11 +12,11 @@ import CardActions from "@mui/material/CardActions";
 import glass from "../static/glass.png";
 import add from "../static/add.jpg";
 
-function Events(props) {
+function Events() {
     return (
           <div className='events'>
             <div className='events__top'>
-                <h1 className='events__tittle'>EVENTS.</h1>
+                <h1 className='events__title'>EVENTS.</h1>
             </div>
               <div className='home__hero'>
                 <div className="events__cards">

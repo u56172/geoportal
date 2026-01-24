@@ -1,18 +1,15 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Carousel } from "../components/Carousel";
-import {Button} from "@mui/material";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo2 from "../static/logo2.png";
 
 const API = "http://localhost:10000";
 
 function toImageSrc(imgUrl) {
   if (!imgUrl) return "";
-  if (imgUrl.startsWith("http://") || imgUrl.startsWith("https://")) return imgUrl;
-
-  if (imgUrl.startsWith("/static/")) return `${API}${encodeURI(imgUrl)}`;
-
-  return `${API}/static/${encodeURIComponent(imgUrl)}`;
+  if (imgUrl.startsWith("http")) return imgUrl;
+  if (imgUrl.startsWith("/static/")) return `${API}${imgUrl}`;
+  return `${API}/static/${imgUrl}`;
 }
 
 function ListOfItems() {
@@ -36,16 +33,16 @@ function ListOfItems() {
   }, [facilities]);
 
   return (
-    <div className ='listofitems'>
+    <div className='listofitems'>
         <div className="listofitems__header">
           <div className='home__logo'>
             <Link to="/" className="home__logoLink">
               <img src={logo2} />
             </Link>
           </div>
+          <div className="listofitems_title">LIST OF FACILITIES.</div>
         </div>
-      <div className="listofitems_title">LIST OF FACILITIES.</div>
-      <div className="mt-8">
+      <div className="listofitems__content">
         <Carousel slides={slides} />
       </div>
     </div>

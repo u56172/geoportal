@@ -10,7 +10,7 @@ services:
       context: ..
       dockerfile: docker/postgis/Dockerfile
     image: 'prge_2025_postgis'
-    container_name: prge-2025-postgis-main
+    container_name: prge-2025-postgis-${ENV_NAME}
     environment:
       - *env-postgres-db
       - *env-postgres-user
@@ -25,7 +25,7 @@ services:
       context: ..
       dockerfile: docker/geoserver/Dockerfile
     image: 'prge_2025_geoserver'
-    container_name: prge-2025-geoserver-main
+    container_name: prge-2025-geoserver-${ENV_NAME}
     ports:
       - ${GEOSERVER_PORT}:8080
     volumes:
@@ -36,7 +36,7 @@ services:
       context: ..
       dockerfile: docker/fastapi/Dockerfile
     image: 'prge_2025_fastapi'
-    container_name: prge-2025-fastapi-main
+    container_name: prge-2025-fastapi-${ENV_NAME}
     environment:
       - *env-postgres-db
       - *env-postgres-user
@@ -47,11 +47,14 @@ services:
   nginx:
     build:
       context: ..
-      dockerfile: docker/nginx/Dockerfile_local
+      dockerfile: docker/nginx/Dockerfile_remote
     image: 'prge_2025_nginx'
-    container_name: prge-2025-nginx-main
+    container_name: prge-2025-nginx-${ENV_NAME}
     ports:
-      - 8081:80
+      - ${NGINX_PORT:-8081}:80
+    depends_on:
+      - fastapi
+      - geoserver
 
 volumes:
   postgis-prge-2025-data:
