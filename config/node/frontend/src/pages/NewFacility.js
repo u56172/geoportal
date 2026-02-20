@@ -10,9 +10,15 @@ function NewFacility() {
     const [facilityNumber, setFacilityNumber] = useState("")
     const [facilityCity, setFacilityCity] = useState("")
     const [facilityUrl, setFacilityUrl] = useState("")
+    const [error, setError] = useState("")
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!facilityName || !facilityStreet || !facilityCity || !facilityUrl) {
+            setError("All required fields must be filled");
+            return;
+        }
+        setError("");
         try {
             const response = await fetch('/app/insert_facility', {
                 method: 'POST',
@@ -81,6 +87,7 @@ function NewFacility() {
                                            value={facilityUrl}
                                            onChange={(e) => setFacilityUrl(e.target.value)}
                                 ></TextField>
+                                {error && <p style={{color: 'red', margin: '8px'}}>{error}</p>}
                                 <div className='newfacility__buttons'>
                                 <Button type="submit" variant='contained'>Add an object</Button>
                                 <Button size="small" color="primary" component={Link} to="/list">See all objects</Button>
