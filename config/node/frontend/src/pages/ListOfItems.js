@@ -1,35 +1,48 @@
-import React, {useEffect, useState} from 'react';
-import UserCard from "../components/UserCard";
+import React, { useEffect, useState } from "react";
+import { Carousel } from "../components/Carousel";
+import { Link } from "react-router-dom";
+import logo2 from "../static/logo2.png";
 
-function ListOfItems(props) {
+function toImageSrc(imgUrl) {
+  if (!imgUrl) return "";
+  if (imgUrl.startsWith("http")) return imgUrl;
+  return `/app/static/${imgUrl}`;
+}
 
-    const [users, setUsers] = useState([]);
+function ListOfItems() {
+  const [facilities, setFacilities] = useState([]);
 
-    useEffect(()=>{
-        //http://localhost:10000/app/get_users
-        fetch('http://localhost:10000/app/get_users')
-            .then(res => res.json())
-            .then(res => {
-                console.log(res);
-                setUsers(res)
-            })
+  useEffect(() => {
+    fetch('/app/get_facilities')
+      .then((res) => res.json())
+      .then((res) => setFacilities(res.data ?? []));
+  }, []);
 
+  const slides = facilities.map((f) => ({
+    id: f.id,
+    title: f.name,
+    button: f.city,
+    src: toImageSrc(f.img_url),
+  }));
 
-         console.log('działa')
-    },[])
-
-
-    console.log('TO JEST MÓJ USERS I JEGO AKTUALNA ZAWARTOŚĆ', users.data)
-
-    return (
-        <div>
-            List of items
-            <div>
-                {users.data?.map(user => <UserCard user={user}/>)}
-            </div>
-
+  return (
+    <div className='listofitems'>
+      <div className="listofitems__top">
+        <div className="listofitems__header">
+          <div className='home__logo'>
+            <Link to="/" className="home__logoLink">
+              <img src={logo2} />
+            </Link>
+          </div>
+          <div className="listofitems_title">LIST OF FACILITIES.</div>
         </div>
-    );
+        <div className="listofitems__content">
+          <Carousel slides={slides} />
+        </div>
+      </div>
+      <div className="listofitems__bottom"></div>
+    </div>
+  );
 }
 
 export default ListOfItems;
