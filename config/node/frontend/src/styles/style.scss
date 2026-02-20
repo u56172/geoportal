@@ -113,7 +113,26 @@ a {
   background: $nav-bg;
   color: $text-dark;
 }
-
+.home__login.MuiButton-root {
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 8px;
+  text-transform: none;
+  font-weight: 700;
+  box-shadow: $shadow;
+  background: $primary-color;
+  color: $white;
+}
+.home__register.MuiButton-root {
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 8px;
+  text-transform: none;
+  font-weight: 700;
+  box-shadow: $shadow;
+  background: $primary-color;
+  color: $white;
+}
 /*Title*/
 
 .home__title {
@@ -334,6 +353,91 @@ a {
   padding: 20px 0;
 }
 
+/*Login*/
+.login {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.login__top {
+  height: 75vh;
+  background: $white;
+  position: relative;
+}
+
+.login__title{
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  line-height: 0.95;
+  font-size: clamp(64px, 10vw, 140px);
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  color: $text-dark;
+}
+
+.login__forms{
+  position: absolute;
+  top: 270px;
+  left: 35px;
+  right: 35px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  z-index: 2;
+}
+.login__buttons{
+  display: flex;
+  gap: 16px;
+}
+.login__bottom{
+  height: 25vh;
+  background: $primary-color;
+}
+
+/*Register*/
+.register {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.register__top {
+  height: 75vh;
+  background: $white;
+  position: relative;
+}
+.register__title{
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  line-height: 0.95;
+  font-size: clamp(64px, 10vw, 140px);
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  color: $text-dark;
+}
+.register__forms{
+  position: absolute;
+  top: 270px;
+  left: 35px;
+  right: 35px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  z-index: 2;
+}
+.register__buttons{
+  display: flex;
+  gap: 16px;
+}
+.register__bottom{
+  height: 25vh;
+  background: $primary-color;
+}
 /*New Facility*/
 
 
@@ -586,3 +690,7 @@ a {
 }
 
 
+.error{
+  color: red; 
+  margin: 8px;
+}

@@ -1,10 +1,18 @@
 import React from 'react';
 import { Button } from "@mui/material";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../static/logo.png';
 import poland from '../static/poland.png';
+import auth from '../auth';
 
 function Home() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    auth.isLoggedIn = false;
+    navigate('/');
+  };
+
   return (
     <div className='home'>
       <div className='home__top'>
@@ -25,11 +33,29 @@ function Home() {
           </div>
 
           <div className='home__navRight'>
+            {auth.isLoggedIn ? (
+              <Button className='home__login' variant='contained' onClick={handleLogout}>
+                Logout
+              </Button>
+            ) : (
+              <Button className='home__login' variant='contained' component={Link} to='/login'>
+                Login
+              </Button>
+            )}
+            <Button 
+              className='home__register' 
+              variant='contained' 
+              component={Link} 
+              to='/register'
+            >
+              Register
+            </Button>
             <Button 
               className='home__getStarted' 
               variant='contained' 
-              component={Link} 
+              component={auth.isLoggedIn ? Link : 'button'}
               to='/services'
+              disabled={!auth.isLoggedIn}
             >
               Get Started →
             </Button>
