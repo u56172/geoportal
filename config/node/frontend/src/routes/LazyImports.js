@@ -9,3 +9,5 @@ export const Map = lazy(() => import('../pages/Map'));
 export const Services = lazy(() => import('../pages/Services'));
 export const Help = lazy(() => import('../pages/Help'));
 export const Events = lazy(() => import('../pages/Events'));
+export const Login = lazy(() => import('../pages/Login'));
+export const Register = lazy(() => import('../pages/Register'));
