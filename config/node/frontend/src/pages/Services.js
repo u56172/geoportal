@@ -1,18 +1,12 @@
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import CardActionArea from '@mui/material/CardActionArea';
-import CardActions from '@mui/material/CardActions';
+import React from "react";
+import { Card, CardContent, CardMedia, Typography, Button, CardActionArea, CardActions } from '@mui/material';
 import { Link } from 'react-router-dom';
 import skater from '../static/skater.jpg';
 import add from '../static/add.jpg';
 import glass from '../static/glass.png';
 import logo2 from "../static/logo2.png";
-import React from "react";
 
-export default function MultiActionAreaCard() {
+export default function Services() {
   return (
     <div className="services">
       <div className="services__top">
@@ -92,7 +86,7 @@ export default function MultiActionAreaCard() {
         </div>
       </div>
 
-      <div className="services__bottom" />
+      <div className="services__bottom"></div>
     </div>
   );
 }
