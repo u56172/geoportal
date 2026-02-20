@@ -38,10 +38,14 @@ services:
       dockerfile: docker/fastapi/Dockerfile
     image: 'prge_2025_fastapi'
     container_name: 'prge_2025_fastapi'
+    depends_on:
+      - postgis
     environment:
       - *env-postgres-db
       - *env-postgres-user
       - *env-postgres-password
+      - POSTGRES_HOST=postgis
+      - POSTGRES_PORT=5432
     ports:
       - '10000:10000'
 
@@ -60,6 +64,7 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true
       - WATCHPACK_POLLING=true
+      - API_PROXY_TARGET=http://fastapi:10000
 
   nginx:
     build:
@@ -67,6 +72,8 @@ services:
       dockerfile: docker/nginx/Dockerfile_local
     image: 'prge_2025_nginx'
     container_name: 'prge_2025_nginx'
+    depends_on:
+      - fastapi
     ports:
       - 8080:80
 

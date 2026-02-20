@@ -52,9 +52,6 @@ services:
     container_name: prge-2025-nginx-${ENV_NAME}
     ports:
       - ${NGINX_PORT:-8081}:80
-    depends_on:
-      - fastapi
-      - geoserver
 
 volumes:
   postgis-prge-2025-data:
